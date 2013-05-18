@@ -1,5 +1,6 @@
 package com.hack.core;
 
+import android.R.integer;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -24,6 +25,9 @@ public class Hack {
 	public static final String KEY_USER_NAME = "flickrj-android-userName"; //$NON-NLS-1$
 	public static final String KEY_USER_ID = "flickrj-android-userId"; //$NON-NLS-1$
 	public static final String PREFS_NAME = "flickrj-android-sample-pref"; //$NON-NLS-1$
+	
+	public static int SCREEN_WIDTH_PIXEL = 0;
+	public static int SCREEN_HEIGHT_PIXEL = 0;
 
 	
 	/**
