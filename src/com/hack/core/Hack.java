@@ -35,6 +35,13 @@ public class Hack {
 		return getOAuthToken(mContext).getUser();
 	}
 	
+	/**
+	 * 上传图像到flickr
+	 * @param activity
+	 * @param data
+	 * @param imageName
+	 * @param metaData
+	 */
 	public static void uploadImage(BaseActivity activity,byte[] data,String imageName,UploadMetaData metaData){
 		new ImageUploadTask(activity, data, imageName, metaData).execute(getOAuthToken(activity));
 	}
