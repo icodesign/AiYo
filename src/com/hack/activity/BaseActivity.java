@@ -18,4 +18,7 @@ public class BaseActivity extends Activity{
 		Toast.makeText(getApplicationContext(), msg,Toast.LENGTH_SHORT).show();
 	}
 	
+	
+	
+	
 }
