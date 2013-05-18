@@ -9,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
-import android.content.SharedPreferences.Editor;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -22,6 +22,7 @@ import com.googlecode.flickrjandroid.auth.Permission;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthToken;
 import com.googlecode.flickrjandroid.people.User;
+import com.hack.core.Hack;
 
 public class OAuthTask extends AsyncTask<Void, Integer, String> {
 
@@ -116,28 +117,8 @@ public class OAuthTask extends AsyncTask<Void, Integer, String> {
 	
 	public OAuth getOAuthToken() {
    	 //Restore preferences
-       SharedPreferences settings = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-       String oauthTokenString = settings.getString(KEY_OAUTH_TOKEN, null);
-       String tokenSecret = settings.getString(KEY_TOKEN_SECRET, null);
-       if (oauthTokenString == null && tokenSecret == null) {
-       	logger.warn("No oauth token retrieved"); //$NON-NLS-1$
-       	return null;
-       }
-       OAuth oauth = new OAuth();
-       String userName = settings.getString(KEY_USER_NAME, null);
-       String userId = settings.getString(KEY_USER_ID, null);
-       if (userId != null) {
-       	User user = new User();
-       	user.setUsername(userName);
-       	user.setId(userId);
-       	oauth.setUser(user);
-       }
-       OAuthToken oauthToken = new OAuthToken();
-       oauth.setToken(oauthToken);
-       oauthToken.setOauthToken(oauthTokenString);
-       oauthToken.setOauthTokenSecret(tokenSecret);
-       logger.debug("Retrieved token from preference store: oauth token={}, and token secret={}", oauthTokenString, tokenSecret); //$NON-NLS-1$
-       return oauth;
+		return Hack.getOAuthToken(mContext);
+       
    }
 
 	@Override
@@ -151,6 +132,31 @@ public class OAuthTask extends AsyncTask<Void, Integer, String> {
 		} else {
 			Toast.makeText(mContext, result, Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	/**
+	 * 查询是否已经认证，如果已经认证返回oauth对象，否则返回null
+	 * @return
+	 */
+	public OAuth checkOauth(){
+		OAuth oauth = getOAuthToken();
+		if (oauth == null || oauth.getUser() == null) {
+			return null;
+		}else{
+			return oauth;
+		}
+	}
+
+	public void clearOauth() {
+		// TODO Auto-generated method stub
+		SharedPreferences sp = mContext.getSharedPreferences(PREFS_NAME,
+				Context.MODE_PRIVATE);
+		Editor editor = sp.edit();
+		editor.putString(KEY_OAUTH_TOKEN, null);
+		editor.putString(KEY_TOKEN_SECRET, null);
+		editor.putString(KEY_USER_NAME, null);
+		editor.putString(KEY_USER_ID, null);
+		editor.commit();
 	}
 
 }

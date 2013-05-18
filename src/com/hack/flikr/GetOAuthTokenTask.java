@@ -6,12 +6,13 @@ package com.hack.flikr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthInterface;
-import com.hack.activity.FlickrOauthActivity;
+import com.hack.activity.ProfileActivity;
 
 /**
  * @author Toby Yu(yuyang226@gmail.com)
@@ -20,9 +21,9 @@ import com.hack.activity.FlickrOauthActivity;
 public class GetOAuthTokenTask extends AsyncTask<String, Integer, OAuth> {
 	private static final Logger logger = LoggerFactory.getLogger(GetOAuthTokenTask.class);
 
-	private FlickrOauthActivity activity;
+	private ProfileActivity activity;
 
-	public GetOAuthTokenTask(FlickrOauthActivity context) {
+	public GetOAuthTokenTask(ProfileActivity context) {
 		this.activity = context;
 	}
 
