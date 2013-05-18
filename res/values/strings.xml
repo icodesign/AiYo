@@ -1,6 +1,10 @@
 <resources>
 
-    
     <string name="app_name">YahooHackDay</string>
+    <string name="travel">旅行</string>
+    <string name="Map">地图</string>
+    <string name="takePhoto">拍照</string>
+    <string name="profile">profile</string>
+    <string name="setting">设置</string>
 
 </resources>
