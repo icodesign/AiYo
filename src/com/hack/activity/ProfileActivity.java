@@ -30,6 +30,10 @@ public class ProfileActivity extends BaseActivity{
 		task = new OAuthTask(this);
 		oauth = task.checkOauth();
 		initView();
+		
+		Intent intent = new Intent(ProfileActivity.this, WelcomeActivity.class);
+		startActivity(intent);
+		finish();
 	}
 	
 	private void initView() {
