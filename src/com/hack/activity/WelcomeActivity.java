@@ -2,6 +2,7 @@ package com.hack.activity;
 
 import com.hack.core.Hack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 
@@ -18,6 +19,10 @@ public class WelcomeActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getScreenMatrix();
+        
+        Intent intent = new Intent(WelcomeActivity.this, TakePhoto.class);  
+		startActivity(intent);
+		this.finish();
     }
 
 	private void getScreenMatrix() {
