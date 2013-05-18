@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:layout_gravity="bottom"
+    >"
+    
+    <Button
+        android:id="@+id/btn_bottom_menu_travel"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:text="@string/travel"
+        android:textSize="17sp"
+	    android:gravity="center"
+	    android:background="#FF0000"
+	    />
+    
+    <Button
+        android:id="@+id/btn_bottom_menu_map"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:text="@string/Map"
+        android:textSize="17sp"
+	    android:gravity="center"
+	    android:background="#FF0000"
+	    />
+    
+    <Button
+        android:id="@+id/btn_bottom_menu_take_photo"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:text="@string/takePhoto"
+        android:textSize="17sp"
+	    android:gravity="center"
+	    android:background="#FF0000"
+	    />
+    
+    <Button
+        android:id="@+id/btn_bottom_menu_profile"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:text="@string/profile"
+        android:textSize="17sp"
+	    android:gravity="center"
+	    android:background="#FF0000"
+	    />
+    
+    <Button
+        android:id="@+id/btn_bottom_menu_setting"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1" 
+        android:text="@string/setting"
+        android:textSize="17sp"
+	    android:gravity="center"
+	    android:background="#FF0000"
+	    />
+
+</LinearLayout>
