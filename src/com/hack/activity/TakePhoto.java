@@ -28,7 +28,8 @@ public class TakePhoto extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+        setContentView(R.layout.take_photo);
+  
         btnTakePicture = (Button) findViewById(R.id.btn_bottom_menu_take_photo);
         btnTakePicture.setOnClickListener(onClickListener);
     }
