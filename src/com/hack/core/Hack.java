@@ -45,7 +45,7 @@ public class Hack {
 	public static void uploadImage(BaseActivity activity,byte[] data,String imageName,UploadMetaData metaData){
 		new ImageUploadTask(activity, data, imageName, metaData).execute(getOAuthToken(activity));
 	}
-	
+		
 	public static OAuth getOAuthToken(Context mContext) {
 	   SharedPreferences settings = mContext.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 	   String oauthTokenString = settings.getString(KEY_OAUTH_TOKEN, null);

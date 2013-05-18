@@ -3,23 +3,15 @@
  */
 package com.hack.flikr;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthToken;
-import com.googlecode.flickrjandroid.people.User;
 import com.googlecode.flickrjandroid.uploader.UploadMetaData;
 import com.hack.activity.BaseActivity;
 
 public class ImageUploadTask extends AsyncTask<OAuth, Void, String> {
-	private final Logger logger = LoggerFactory.getLogger(ImageUploadTask.class);
 	private BaseActivity activity;
 	private byte[] data;
 	private String imageName;
@@ -49,7 +41,6 @@ public class ImageUploadTask extends AsyncTask<OAuth, Void, String> {
 					.getFlickrAuthed(token.getOauthToken(), token.getOauthTokenSecret());
 			return f.getUploader().upload(imageName, data, metaData);
 		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage(), e);
 			activity.makeToast(e.toString());
 		}
 		return null;

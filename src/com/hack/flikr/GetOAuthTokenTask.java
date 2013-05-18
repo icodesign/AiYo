@@ -3,10 +3,6 @@
  */
 package com.hack.flikr;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import android.app.Activity;
 import android.os.AsyncTask;
 
 import com.googlecode.flickrjandroid.Flickr;
@@ -19,7 +15,6 @@ import com.hack.activity.ProfileActivity;
  *
  */
 public class GetOAuthTokenTask extends AsyncTask<String, Integer, OAuth> {
-	private static final Logger logger = LoggerFactory.getLogger(GetOAuthTokenTask.class);
 
 	private ProfileActivity activity;
 
@@ -39,7 +34,6 @@ public class GetOAuthTokenTask extends AsyncTask<String, Integer, OAuth> {
 			return oauthApi.getAccessToken(oauthToken, oauthTokenSecret,
 					verifier);
 		} catch (Exception e) {
-			logger.error(e.getLocalizedMessage(), e);
 			return null;
 		}
 

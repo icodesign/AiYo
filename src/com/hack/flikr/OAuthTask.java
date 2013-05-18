@@ -3,9 +3,6 @@ package com.hack.flikr;
 
 import java.net.URL;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,13 +18,9 @@ import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.auth.Permission;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthToken;
-import com.googlecode.flickrjandroid.people.User;
 import com.hack.core.Hack;
 
 public class OAuthTask extends AsyncTask<Void, Integer, String> {
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(OAuthTask.class);
 	public static final String CALLBACK = "hack-oauth"; //$NON-NLS-1$
 	private static final Uri OAUTH_CALLBACK_URI = Uri.parse(CALLBACK+"://oauth"); //$NON-NLS-1$
 	public static final String KEY_OAUTH_TOKEN = "flickrj-android-oauthToken"; //$NON-NLS-1$
@@ -87,7 +80,6 @@ public class OAuthTask extends AsyncTask<Void, Integer, String> {
 					Permission.WRITE, oauthToken);
 			return oauthUrl.toString();
 		} catch (Exception e) {
-			logger.error("Error to oauth", e); //$NON-NLS-1$
 			return "error:" + e.getMessage(); //$NON-NLS-1$
 		}
 	}
@@ -98,13 +90,10 @@ public class OAuthTask extends AsyncTask<Void, Integer, String> {
 	 * @param tokenSecret
 	 */
 	private void saveTokenSecrent(String tokenSecret) {
-		logger.debug("request token: " + tokenSecret); //$NON-NLS-1$
 		saveOAuthToken(null, null, null, tokenSecret);
-		logger.debug("oauth token secret saved: {}", tokenSecret); //$NON-NLS-1$
 	}
 	
 	public void saveOAuthToken(String userName, String userId, String token, String tokenSecret) {
-    	logger.debug("Saving userName=%s, userId=%s, oauth token={}, and token secret={}", new String[]{userName, userId, token, tokenSecret}); //$NON-NLS-1$
     	SharedPreferences sp = mContext.getSharedPreferences(PREFS_NAME,
 				Context.MODE_PRIVATE);
 		Editor editor = sp.edit();
