@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#d6d3d3"
+    >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Click Profile to Login"
+        android:id="@+id/username"
+        android:padding="10dp" 
+        
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        />
+	<ListView 
+	     android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuList"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#e6e6e6"
+        android:dividerHeight="1dp">
+	    
+	</ListView>
+</LinearLayout>

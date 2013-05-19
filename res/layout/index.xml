@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include layout="@layout/head_menu"
+        android:layout_height="50dp"
+        android:layout_width="fill_parent"/>
+    <com.hack.view.MyViewPager
+					    android:layout_width="fill_parent" 
+					    android:layout_height="fill_parent" 
+					    android:id="@+id/viewpager"/>
+</LinearLayout>

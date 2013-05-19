@@ -3,34 +3,35 @@
     android:layout_width="fill_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
-    android:background="#FF0000"
+    android:background="#ff541f"
     >"
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_head_menu_leftBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="54dp"
+        android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="10dp"
-        android:text="Left_btn"
+        android:src="@drawable/btn_menubar"
+        android:background="@drawable/btn_menubg"
         />
     
-    <TextView
+    <ImageView
         android:id="@+id/btn_head_menu_midText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="midddle_text"
+        android:src="@drawable/logo"
         />
-    <Button
+    <ImageButton
         android:id="@+id/btn_head_menu_rightBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="54dp"
+        android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="10dp"
-        android:text="Right_btn"
+        android:src="@drawable/btn_takephotobar"
+        
+        android:background="@drawable/btn_menubg"
         />
 
 </RelativeLayout>

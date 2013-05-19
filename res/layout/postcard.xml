@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	    <ImageView
+        android:id="@+id/imageView_postcard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:clickable="false"
+        android:scaleType="centerCrop" />
+	    <LinearLayout
+	        android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+	        android:orientation="horizontal"
+	        android:layout_alignParentBottom="true"
+		    android:background="#60000000"  >
+		    
+		    <EditText
+		        android:id="@+id/edit"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_vertical"
+		        android:drawableStart="@drawable/edit"
+		        android:textStyle="bold"
+		        android:textSize="16dp"
+		        android:textColor="#ffffff"
+		        android:paddingLeft="5dp" 
+		        android:paddingTop="5dp" 
+		        android:paddingBottom="5dp" />
+    	</LinearLayout>    
+
+    <ImageButton
+        android:id="@+id/imageButton_sendPostcard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:background="#00000000"
+        android:src="@drawable/share" />
+
+    
+
+</RelativeLayout>

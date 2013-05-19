@@ -4,30 +4,30 @@
 package com.hack.flikr;
 
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Message;
 
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthToken;
-import com.googlecode.flickrjandroid.uploader.UploadMetaData;
+import com.googlecode.flickrjandroid.photos.Photo;
 import com.hack.activity.BaseActivity;
-import com.hack.core.Hack;
 
-public class ImageUploadTask extends AsyncTask<OAuth, Void, String> {
+public class PhotourlTask extends AsyncTask<OAuth, Void, String> {
 	private BaseActivity activity;
-	private byte[] data;
-	private String imageName;
-	private UploadMetaData metaData;
-	public ImageUploadTask(BaseActivity activity,byte[] data,String imageName,UploadMetaData metaData) {
+	private String photoid;
+	private Handler handler;
+	private Boolean flag;
+	public PhotourlTask(BaseActivity activity,String photoid,Handler handler,Boolean flag) {
 		this.activity = activity;
-		this.data = data;
-		this.imageName= imageName;
-		this.metaData = metaData;
+		this.photoid = photoid;
+		this.handler = handler;
+		this.flag = flag;
 	}
 	
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
-		activity.makeToast("正在上传到Flickr...");
 	}
 
 	/* (non-Javadoc)
@@ -40,10 +40,13 @@ public class ImageUploadTask extends AsyncTask<OAuth, Void, String> {
 		try {
 			Flickr f = FlickrHelper.getInstance()
 					.getFlickrAuthed(token.getOauthToken(), token.getOauthTokenSecret());
-			return f.getUploader().upload(imageName, data, metaData);
-		
+			Photo p = f.getPhotosInterface().getPhoto(photoid);
+			if (flag)
+				return p.getLargeUrl();
+			else
+				return p.getSmallSquareUrl();
 		} catch (Exception e) {
-			activity.makeToast(e.toString());
+			//activity.makeToast(e.toString());
 		}
 		return null;
 	}
@@ -53,13 +56,9 @@ public class ImageUploadTask extends AsyncTask<OAuth, Void, String> {
 	 */
 	@Override
 	protected void onPostExecute(String string) {
-		if (Double.valueOf(string)>116){
-			activity.makeToast("上传成功");
-			//Hack
-			Hack.addNewPhoto(activity, string, "", Hack.galleryID);
-		}else{
-			activity.makeToast("上传失败，正在重试...");
-		}
+		Message msg = new Message();
+		msg.obj = string;
+		handler.sendMessage(msg);
 	}
 	
 	

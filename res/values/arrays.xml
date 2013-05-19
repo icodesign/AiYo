@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="menu">
+        <item>时间线</item>
+        <item>地图</item>
+        <item>Flickr</item>
+        <item>设置</item>
+        <item>关于</item>
+        <item> </item>
+    </string-array>
+    
+    <string-array name="photo_spinner_data">
+    <item>帝都探险</item>
+    <item>古都之旅</item>
+    <item>埃及探险</item>
+</string-array>
+    
+</resources>

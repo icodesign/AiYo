@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <TextView 
+        android:id="@+id/textView_photo_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="第一天"
+        android:textSize="20sp"
+        />
+    
+    <LinearLayout 
+        android:id="@+id/linearLayout_photos"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_height="120dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView 
+	            android:id="@+id/imageView_photot1"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="2dp"
+	            android:layout_marginRight="2dp"
+	            android:visibility="invisible"
+	            android:scaleType="fitXY"
+	            />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:layout_height="120dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView 
+	            android:id="@+id/imageView_photot2"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="2dp"
+	            android:layout_marginRight="2dp"
+	            android:visibility="invisible"
+	            android:scaleType="fitXY"
+	            />
+        </RelativeLayout>
+        
+
+        <RelativeLayout
+            android:layout_height="120dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            >
+            <ImageView 
+	            android:id="@+id/imageView_photot3"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	            android:layout_marginLeft="2dp"
+	            android:layout_marginRight="2dp"
+	            android:visibility="invisible"
+	            android:scaleType="fitXY"
+	            />
+        </RelativeLayout>
+        
+    </LinearLayout>
+	
+</RelativeLayout>

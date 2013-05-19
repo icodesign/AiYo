@@ -8,7 +8,7 @@ import android.os.AsyncTask;
 import com.googlecode.flickrjandroid.Flickr;
 import com.googlecode.flickrjandroid.oauth.OAuth;
 import com.googlecode.flickrjandroid.oauth.OAuthInterface;
-import com.hack.activity.ProfileActivity;
+import com.hack.activity.IndexActivity;
 
 /**
  * @author Toby Yu(yuyang226@gmail.com)
@@ -16,9 +16,9 @@ import com.hack.activity.ProfileActivity;
  */
 public class GetOAuthTokenTask extends AsyncTask<String, Integer, OAuth> {
 
-	private ProfileActivity activity;
+	private IndexActivity activity;
 
-	public GetOAuthTokenTask(ProfileActivity context) {
+	public GetOAuthTokenTask(IndexActivity context) {
 		this.activity = context;
 	}
 
